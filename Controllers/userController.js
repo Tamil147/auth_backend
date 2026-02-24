@@ -58,10 +58,10 @@ export const forgetPassword = async (req, res) => {
 
     user.forgetToken = hashToken
     user.forgetTokenExpire = Date.now() + 15 * 60 * 1000
-    user.save()
+    await user.save()
 
     // 4️⃣ Reset URL
-    const resetUrl = `http://localhost:5174/reset-password/${resetToken}`;
+    const resetUrl = `https://stunning-cranachan-c8c52d.netlify.app/reset-password/${resetToken}`;
 
     // 5️⃣ Email message
     const message = `
